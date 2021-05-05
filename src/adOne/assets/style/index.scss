@@ -1,0 +1,12 @@
+@import 'partials/variable'; 
+body {
+    background-color: $primaryColor; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+
+::placeholder { 
+    color: gray; 
+  }
+  
