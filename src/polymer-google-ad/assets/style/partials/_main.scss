@@ -1,0 +1,89 @@
+.polymer_bg {
+    background-image: url("https://cdn.pixabay.com/photo/2020/07/06/01/33/sky-5375005_960_720.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    width: 30rem;
+    height: 25rem;
+    margin: auto;
+    overflow: hidden;
+}
+
+.abs-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    width: 30rem;
+    height: 25rem;
+    z-index: 1;
+}
+
+.pl_img {
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.pl_img_anower {
+    top: 5%;
+    left: 5%;
+    width: 5rem;
+    animation-name: moveToRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+}
+
+.pl_img_no_1 {
+    width: 7.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-name: polymerBottomToTop;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: both;
+}
+
+.pl_img_pipe,
+.pl_img_pump {
+    animation-name: pipeMoveToLeft;
+    transform: translateY(-50%);
+    animation-duration: 3s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+.pl_img_pipe {
+    width: 10rem;
+    right: 5%;
+    top: 37%;
+}
+
+.pl_img_polymer {
+    width: 10rem;
+    right: 5%;
+    top: 5%;
+    animation: moveToLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+}
+
+.pl_img_pump {
+    width: 11rem;
+    top: 37%;
+    left: 5%;
+}
+
+.pl_img_long_pump {
+    top: 50%;
+    left: 50%;
+    width: 4rem;
+    transform: translate(-50%, -50%);
+    animation-name: longPump;
+    animation-duration: 2s;
+    animation-delay: 1.5s;
+    transition-timing-function: ease;
+    animation-fill-mode: backwards;
+}

@@ -1,0 +1,94 @@
+/**********************************************
+/ Animation / 
+*************************************************/
+
+@keyframes moveToRight {
+    0% {
+        opacity: 0;
+        transform: translateX(-3rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveToLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(3rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pumpRound {
+    0% {
+        opacity: 0;
+        transform: scale(2);
+    }
+    40% {
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1)
+    }
+}
+
+@keyframes longPump {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-50%) scale(0);
+        top: 50%;
+        left: 50%;
+    }
+    10% {
+        transform: translateX(-50%) translateY(-50%) scale(2);
+        top: 50%;
+        left: 50%;
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(-50%) scale(1);
+        top: 50%;
+        left: 50%;
+    }
+}
+
+@keyframes pipeMoveToLeft {
+    0% {
+        opacity: 0;
+        transform: scale(2);
+    }
+    40% {
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1)
+    }
+}
+
+@keyframes polymerBottomToTop {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(3rem);
+        left: 50%;
+        bottom: 0;
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0rem);
+        left: 50%;
+        bottom: 0;
+    }
+}

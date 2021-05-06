@@ -39,6 +39,11 @@ src
         -- scripts
             -- main.js
         -- style
+            -- partials
+                _colors.scss
+                _main.scss
+                _reset.scss
+                _variable.scss
             -- style.scss
         -- vendor
     -- index.html
@@ -49,11 +54,16 @@ src
         -- scripts
             -- main.js
         -- style
+            -- partials
+                _colors.scss
+                _main.scss
+                _reset.scss
+                _variable.scss
             -- style.scss
         -- vendor
     -- index.html
 -- index.html
--- style.scss
+-- index.scss
 
 ```
 
@@ -64,12 +74,12 @@ src
 * Add attribute 'inline' to link/script/img tag to inline/incode
 i.e.
 <img src="./projectFolder/images/img.png" inline />
-<link rel="stylesheet" href="adOne/assets/style/index.css" inline/>
-<script src="adOne/assets/scripts/main.js" inline></script>
+<link rel="stylesheet" href="demoProject/assets/style/index.css" inline/>
+<script src="demoProject/assets/scripts/main.js" inline></script>
 
 ```
 
-\*\* All Build templates will be stored inside ./build folder.
+\*\* All Build templates will be stored inside ./dist folder.
 
 ## Run project
 

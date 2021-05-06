@@ -5,6 +5,7 @@ const { src, dest, watch, series } = require('gulp');
 const clean = require('gulp-clean');
 const browserSync = require('browser-sync').create();
 const autoprefixer = require('autoprefixer');
+const sourcemaps = require('gulp-sourcemaps');
 const cssnano = require('cssnano');
 const postcss = require('gulp-postcss');
 const sass = require('gulp-sass');
@@ -18,17 +19,42 @@ const paths = {
     source: './src',
     scssPath: './src/**/**/*.scss',
     scssTemplatePath: './src/**/assets/style/**/*.scss',
-    templatePath: './src/**/*.+(html|nunjucks|njk)'
+    templatePath: './src/**/*.+(html|nunjucks|njk)',
+    indexCss: './src/index.css',
+    indexScss: './src/index.scss',
+    projectCss: './src/**/assets/style/**/*.css'
 }
 
 // Sass task
 function scssTask() {
+    const autoprefixBrowsers = ['> 1%', 'last 50 versions', 'firefox >= 4', 'safari 7', 'safari 8', 'IE 8', 'IE 9', 'IE 10', 'IE 11'];
+    const plugins = [
+        autoprefixer({ overrideBrowserslist: autoprefixBrowsers }),
+        cssnano()
+    ]
+
     return src(paths.scssPath)
+        .pipe(sourcemaps.init())
         .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
-        .pipe(postcss([autoprefixer(), cssnano()]))
-        .pipe(gulp.dest(function (file) {
+        .pipe(postcss(plugins))
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest(function(file) {
             return file.base;
         }));
+}
+
+// SrcIndexScss Task
+function srcIndexScss() {
+    const autoprefixBrowsers = ['> 1%', 'last 50 versions', 'firefox >= 4', 'safari 7', 'safari 8', 'IE 8', 'IE 9', 'IE 10', 'IE 11'];
+    const plugins = [
+        autoprefixer({ overrideBrowserslist: autoprefixBrowsers }),
+        cssnano()
+    ]
+
+    return src(paths.indexScss, { sourcemaps: true })
+        .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+        .pipe(postcss(plugins))
+        .pipe(gulp.dest('./src/'), { sourcemaps: '.' })
 }
 
 // Html Task
@@ -38,7 +64,7 @@ function htmlTask() {
         .pipe(nunjucksRender({
             path: ['src/']
         }))
-        .pipe(minifyHTML({ 
+        .pipe(minifyHTML({
             collapseWhitespace: true,
             caseSensitive: true,
             minifyCSS: true,
@@ -47,8 +73,21 @@ function htmlTask() {
         .pipe(dest(paths.dist));
 }
 
+// Clean Dist Folder
 function cleanDist() {
-    return src('./dist', { read: false, allowEmpty: true })
+    return src(paths.dist, { read: false, allowEmpty: true })
+        .pipe(clean());
+}
+
+// Clean './src/index.css' File
+function cleanIndexCss() {
+    return src(paths.indexCss, { read: false, allowEmpty: true })
+        .pipe(clean());
+}
+
+// Clean './src/**/assets/style/**/*.css' File
+function cleanProjectCss() {
+    return src(paths.projectCss, { read: false, allowEmpty: true })
         .pipe(clean());
 }
 
@@ -71,8 +110,8 @@ function reload(done) {
 
 // watch task
 function watchTask() {
-    watch([paths.scssPath, paths.templatePath],
-        series(scssTask, htmlTask, reload)
+    watch([paths.scssPath, paths.indexScss, paths.templatePath],
+        series(scssTask, htmlTask, reload, srcIndexScss)
     );
 }
 
@@ -81,10 +120,11 @@ function watchTask() {
 // #########################################################
 exports.default = series(
     scssTask,
+    srcIndexScss,
     htmlTask,
     reload,
     serve,
     watchTask
 );
 
-exports.clean = series( cleanDist );
+exports.clean = series(cleanDist, cleanIndexCss, cleanProjectCss);
