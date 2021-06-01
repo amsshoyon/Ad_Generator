@@ -1,0 +1,135 @@
+.main {
+  width: 97rem;
+  height: 25rem;
+  background-image: radial-gradient(rgba(143, 210, 218, .8), rgb(8, 75, 83)), url("https://cdn.pixabay.com/photo/2019/07/30/00/55/keszthely-4371727_960_720.jpg");
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+  margin: 0px auto;
+  border: 1px solid #333;
+  z-index: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.link {
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  overflow: hidden;
+}
+
+
+/**************************************
+// Custom Css
+**************************************/
+.title {
+  font-size: 30px;
+  color: #47FBBE;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 3px #1F4E4D;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+  text-align: center;
+  font-family: 'Hind Siliguri', sans-serif;
+  word-spacing: 10px;
+}
+
+.dayBox {
+  position: relative;
+  width: 150px;
+}
+
+.ramadan-day {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  font-size: 60px;
+  color: #084B53;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-weight: 700;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.reflection {
+  font-size: 24px !important;
+}
+
+/**************************************
+// Pqina Flip
+**************************************/
+
+.tick {
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.tick-flip,
+.tick-text-inline {
+  font-size: 2.5em;
+}
+
+.tick-label {
+  margin-top: 0px;
+  font-size: 16px;
+}
+
+.tick-char {
+  width: 1.5em;
+}
+
+.tick-text-inline {
+  display: inline-block;
+  text-align: center;
+  min-width: 1em;
+}
+
+.tick-text-inline+.tick-text-inline {
+  margin-left: -.325em;
+}
+
+.tick-group {
+  margin: 0 .5em;
+  text-align: center;
+}
+
+.tick-text-inline {
+  color: rgb(90, 93, 99) !important;
+}
+
+.tick-label {
+  color: rgb(255, 255, 255) !important;
+}
+
+.tick-flip-panel {
+  color: rgb(255, 255, 255) !important;
+}
+
+.tick-flip-panel-text-wrapper {
+  line-height: 1.45 !important;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 500;
+}
+
+.tick-flip-panel {
+  background-color: rgba(8, 75, 83, 1) !important;
+}
+
+.tick-flip {
+  border-radius: 0.1em !important;
+}
+
+.tick-credits {
+  display: none;
+}

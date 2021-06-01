@@ -1,0 +1,483 @@
+#adArea {
+  overflow: hidden;
+  text-overflow: clip;
+  /* background-color: rgba(255, 255, 255, 1); */
+  width: 300px;
+  height: 250px;
+  position: absolute;
+  display: block;
+  font-family: sans-serif;
+  font-size: 12px;
+  line-height: 1.2;
+}
+.absfull {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+/* MAIN */
+.logo {
+  position: absolute;
+  top: -3px;
+  left: -2px;
+  transition: 0.5s;
+  cursor: pointer;
+  z-index: 999;
+  opacity: 1;
+  width: 110px;
+}
+#mainScreen{
+  background-image: url("../images/scratchBack.jpg");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.section {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  transform: scale(1);
+  transition: 1s;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 1;
+  opacity: 1;
+  transition: 1s;
+}
+.section:not(.active) {
+  opacity: 0;
+  z-index: -1;
+}
+
+/* step1 */
+.cursorBlock {
+  width: 192px;
+  height: 95px;
+  position: absolute;
+  z-index: 99;
+  top: calc(50% - 47px);
+  left: calc(50% - 96px);
+  transition: 0.5s;
+  opacity: 1;
+  animation: pulseItem 2s linear infinite;
+}
+.cursorBlock.hidden {
+  opacity: 0;
+  z-index: -99;
+  visibility: hidden;
+  animation: none;
+}
+.cursor{
+  width: 40px;
+  position: relative;
+  top: -40px;
+  left: 0px;
+  animation: moveCursor 2.5s linear infinite !important;
+}
+
+
+/* step2 */
+.active.step2 {
+  cursor: pointer;
+}
+.active.preview .slogan{
+  transform: scale(1);
+  opacity: 1;
+}
+.preview .slogan{
+  top: 20%;
+  z-index: 40;
+  left: 20%;
+  transition: 1.5s;
+}
+.slogan {
+  transform: scale(0);
+  opacity: 0;
+  position: absolute;
+}
+img.packs {
+  top: 40%;
+  width: 100px;
+  position: absolute;
+  z-index: 99;
+}
+.active img.packs.right {
+  transform: translate(70px, 8px) rotate(0deg);
+  transition: 0.2s;
+  transition-delay: 1.2s;
+  top: 38%;
+}
+.active img.packs.left {
+  transform: translate(-65px, 15px) rotate(0deg);
+  transition: 0.4s;
+  transition-delay: 1s;
+  width: 115px;
+  top: 35%;
+}
+img.btn{
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 75px);
+  animation: shake 2s linear infinite;
+  z-index: 999;
+}
+/* update */
+.smokeBlock {
+  position: absolute;
+  width: 224px;
+  height: 204px;
+  left: calc(50% - 102px);
+  top: -54px;
+  opacity: 1;
+  background-image: url("../images/smoke.png");
+  background-size: auto;
+  background-position: bottom -110% center;
+  animation: moveSmoke 6s linear infinite;
+  z-index: 1;
+}
+.sc__canvas {
+  z-index: 99;
+  cursor: pointer;
+}
+.rainblock {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/kapli.png");
+  background-size: auto;
+  background-position: bottom -100% center;
+  animation: moveRain 3s linear infinite;
+  z-index: 199;
+  transition: 0.5s;
+  pointer-events: none;
+  touch-action: none;
+  filter: blur(1px);
+}
+.rainblock.disabled {
+  z-index: -1;
+  opacity: 0;
+}
+.rainblock.rainblock2, .rainblock.rainblock3 {
+  animation: moveRain 4s linear infinite;
+  height: 184px;
+  z-index: 1;
+}
+.bowl {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  z-index: 5;
+}
+.book {
+  position: absolute;
+  bottom: 3px;
+  left: 0px;
+  z-index: 5;
+}
+
+/* Animation */
+.amimScreen .cardBlock {
+  animation: lowRotate 3s linear infinite;
+}
+.amimScreen .logo {
+  animation: pulseItem 3s linear infinite;
+  animation-delay: -1.5s;
+}
+
+@keyframes moveBg {
+  0% {
+    background-position: center;
+    background-size: auto 0%;
+    opacity: 0;
+  }
+  10% {
+    background-size: auto 0%;
+    opacity: 1;
+  }
+  25% {
+    background-size: auto 50%;
+  }
+  50% {
+    background-size: auto 100%;
+    background-position: center;
+  }
+  75% {
+    background-position: bottom -35px center;
+  }
+  90% {
+    background-position: bottom -70px center;
+    background-size: auto 100%;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    background-position: bottom -70px center;
+  }
+}
+
+@keyframes pulseItem {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  70% {
+    transform: translate(0, 0) scale(1);
+  }
+  80% {
+    transform: translate(0, 0) scale(1.05);
+  }
+  90% {
+    transform: translate(0, 0) scale(0.95);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes lowRotate {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  70% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  80% {
+    transform: translate(0, 0) rotate(-5deg);
+  }
+  90% {
+    transform: translate(0, 0) rotate(5deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+@keyframes showLogo {
+  0%{
+    opacity: 0;
+    transform: scale(0);
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes flashAnim {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  30%, 100% {
+    opacity: 0;
+  }
+}
+@keyframes moveSmoke {
+  0% {
+    background-position: bottom -210px center;
+    opacity: 0;
+  }
+  10% {
+    background-position: bottom -210px center;
+    opacity: 1;
+  }
+  90% {
+    background-position: bottom 210px center;
+    opacity: 0.75;
+  }
+  100% {
+    background-position: bottom 210px center;
+    opacity: 0;
+  }
+}
+@keyframes moveRain {
+  0% {
+    background-position: bottom -100% center;
+  }
+  100% {
+    background-position: bottom 100% center;
+  }
+}
+@keyframes moveCursor {
+  from{
+    transform: translateX(0px);
+  }
+  to{
+    transform: translateX(150px);
+  }
+}
+
+@keyframes shake {
+  5%, 45% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  10%, 40% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  15%, 25%, 35% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  20%, 30% {
+    transform: translate3d(4px, 0, 0);
+  }
+  50%{
+    transform: translate3d(0, 0, 0);
+  }
+  100%{
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* SCRATCH */
+.hiddenImg {
+  display: none;
+  visibility: hidden;
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  z-index: -1;
+  top: -100vh;
+  left: -100vw;
+}
+
+#scratch-container {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  border: 0px solid black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  opacity: 1;
+  z-index: 99;
+  overflow: hidden;
+}
+#scratch-container.done {
+  opacity: 0px;
+  z-index: -1;
+}
+#scratch-container>img {
+  opacity: 0;
+}
+
+#scratch-container:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#scratch-container canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#scratch-container img {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#js-debug-cursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: yellow;
+  width: 50px;
+  height: 50px;
+  z-index: 99;
+  will-change: transform;
+  -webkit-transition-duration: 300ms;
+  transition-duration: 300ms;
+}
+
+.sc__wrapper {
+  display: block;
+  width: 100%;
+  height: 300px;
+  max-width: 300px;
+  margin: 0 auto;
+  border: 5px solid rgba(#FFF, 0.5);
+}
+
+/* Where the scratchcard will be generate */
+.sc__container {
+  position: relative;
+  overflow: hidden;
+  max-height: 300px;
+  max-width: 300px;
+}
+
+.sc__inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Background image, the result */
+.sc__container > img {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+
+/* The scratchcard generate with scratchcard-js */
+.sc__container canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+
+/* Scratchcard informations */
+.sc__infos {
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  margin-top: 5px;
+  font-weight: bold;
+  font-size: 16px;
+}

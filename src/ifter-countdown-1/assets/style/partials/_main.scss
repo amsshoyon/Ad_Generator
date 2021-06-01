@@ -1,0 +1,131 @@
+.main {
+  width: 72.8rem;
+  height: 9rem;
+  background-image: linear-gradient(
+      130deg,
+      rgba(24, 130, 255, .6),
+      rgba(27, 232, 231, .3)
+    ),
+    url("https://cdn.pixabay.com/photo/2021/01/02/12/32/cathedral-5881418_960_720.jpg");
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  position: relative;
+  margin: 0px auto;
+  border: 1px solid #333;
+  z-index: 1;
+}
+
+.link {
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  overflow: hidden;
+}
+
+/**************************************
+// Custom Css
+**************************************/
+.item {
+  width: 100%;
+  height: 100%;
+}
+
+.flip-clock-wrapper {
+  margin-top: 20px;
+}
+
+.title {
+  position: absolute;
+  right: 15px;
+  top: 10%;
+  font-size: 20px;
+  color: #fff;
+  font-family: "Raleway", "sans-serif";
+  font-weight: 700;
+  word-spacing: 17px;
+  letter-spacing: 5px;
+}
+
+.click-me-btn {
+  position: absolute;
+  top: 68%;
+  right: 2%;
+  font-size: 15px;
+  text-decoration: none;
+  color: #fff;
+  background: #000;
+  padding: 3px 7px;
+  display: block;
+  font-family: "Raleway", sans-serif;
+  -webkit-border-radius: 100px;
+  border-radius: 100px;
+  font-weight: 900;
+}
+
+/**************************************
+// Flip Clock Css
+**************************************/
+
+.flip-clock-wrapper ul li a div div.inn {
+  font-size: 2rem;
+  color: #fff;
+}
+
+.flip-clock-wrapper ul {
+  width: 40px;
+  height: 40px;
+  margin: 8px;
+}
+
+.flip-clock-divider {
+  height: 80px;
+}
+
+.flip-clock-dot.top {
+  top: 17px;
+}
+
+.flip-clock-dot.bottom {
+  bottom: 37px;
+}
+
+.flip-clock-label {
+  font-family: "Orbitron", sans-serif;
+}
+
+.flip-clock-dot {
+  width: 6px;
+  height: 6px;
+}
+
+.flip-clock-divider .flip-clock-label {
+  top: -19%;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.flip-clock-divider.days .flip-clock-label {
+  right: -47px;
+}
+
+.flip-clock-divider.hours .flip-clock-label {
+  right: -54px;
+}
+
+.flip-clock-divider.minutes .flip-clock-label {
+  right: -68px;
+}
+
+.flip-clock-divider.seconds .flip-clock-label {
+  right: -72px;
+}
+
+.flip-clock-wrapper ul li {
+  line-height: 40px;
+  font-family: "Orbitron", sans-serif;
+}

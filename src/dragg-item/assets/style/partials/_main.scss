@@ -1,0 +1,82 @@
+// .main {
+//    width: 30rem;
+//    height: 25rem;
+//    background-image: url("https://cdn.pixabay.com/photo/2020/05/04/13/00/spring-5129078_960_720.jpg");
+//    background-size: cover;
+//    overflow: hidden;
+//    position: relative;
+//    margin: 0px auto;
+//    border: 1px solid #333;
+// }
+
+.main {
+   position: relative;
+}
+
+.item {
+   width: 22%;
+   position: absolute;
+   top: 10%;
+   cursor: grab;
+   z-index: 10;
+}
+
+.item:active {
+   cursor: all-scroll;
+}
+
+.item-1 {
+   left: 5%;
+}
+
+.item-2 {
+   left: 38%;
+}
+
+.item-3 {
+   right: 5%;
+}
+
+#transparent-bg {
+   background: transparent;
+   width: 200px;
+   height: 150px;
+   position: absolute;
+   bottom: 0%;
+   left: 50%;
+   transform: translate(-50%);
+   z-index: -10;
+}
+
+.reval{
+   width: 34%;
+   height: 100%;
+   visibility: hidden;
+   opacity: 0;
+   transition: .3s ease;
+   position: absolute;
+   top: 2%;
+   left: 32%;
+}
+.reval.show,
+.link.show{
+   visibility: visible;
+   opacity: 1;
+}
+
+.link {
+   position: absolute;
+   background: transparent;
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+   visibility: hidden;
+   opacity: 0;
+   transition: .3s ease;
+}
+
+.bg2 {
+   width: 100%;
+   height: 100%;
+}

@@ -1,7 +1,7 @@
 // Initialize Modules
 const fs = require('fs');
 const gulp = require('gulp');
-const { src, dest, watch, series } = require('gulp');
+const {src, dest, watch, series} = require('gulp');
 const clean = require('gulp-clean');
 const browserSync = require('browser-sync').create();
 const autoprefixer = require('autoprefixer');
@@ -22,23 +22,26 @@ const paths = {
     templatePath: './src/**/*.+(html|nunjucks|njk)',
     indexCss: './src/index.css',
     indexScss: './src/index.scss',
-    projectCss: './src/**/assets/style/**/*.css'
+    projectCss: './src/**/assets/style/*.+(css|map)',
+    VendoProjectCss: './src/**/assets/vendor/*.css',
+    imageSrcPath: './src/**/assets/images/*.{jpg,jpeg,png,svg}',
+    imageDistPath: './dist'
 }
 
 // Sass task
 function scssTask() {
     const autoprefixBrowsers = ['> 1%', 'last 50 versions', 'firefox >= 4', 'safari 7', 'safari 8', 'IE 8', 'IE 9', 'IE 10', 'IE 11'];
     const plugins = [
-        autoprefixer({ overrideBrowserslist: autoprefixBrowsers }),
+        autoprefixer({overrideBrowserslist: autoprefixBrowsers}),
         cssnano()
     ]
 
     return src(paths.scssPath)
         .pipe(sourcemaps.init())
-        .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(postcss(plugins))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest(function(file) {
+        .pipe(gulp.dest(function (file) {
             return file.base;
         }));
 }
@@ -47,14 +50,14 @@ function scssTask() {
 function srcIndexScss() {
     const autoprefixBrowsers = ['> 1%', 'last 50 versions', 'firefox >= 4', 'safari 7', 'safari 8', 'IE 8', 'IE 9', 'IE 10', 'IE 11'];
     const plugins = [
-        autoprefixer({ overrideBrowserslist: autoprefixBrowsers }),
+        autoprefixer({overrideBrowserslist: autoprefixBrowsers}),
         cssnano()
     ]
 
-    return src(paths.indexScss, { sourcemaps: true })
-        .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+    return src(paths.indexScss, {sourcemaps: true})
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(postcss(plugins))
-        .pipe(gulp.dest('./src/'), { sourcemaps: '.' })
+        .pipe(gulp.dest('./src/'), {sourcemaps: '.'})
 }
 
 // Html Task
@@ -73,21 +76,27 @@ function htmlTask() {
         .pipe(dest(paths.dist));
 }
 
+//Image Task
+function imageTask() {
+    return src(paths.imageSrcPath)
+        .pipe(gulp.dest(paths.imageDistPath))
+}
+
 // Clean Dist Folder
 function cleanDist() {
-    return src(paths.dist, { read: false, allowEmpty: true })
+    return src(paths.dist, {read: false, allowEmpty: true})
         .pipe(clean());
 }
 
 // Clean './src/index.css' File
 function cleanIndexCss() {
-    return src(paths.indexCss, { read: false, allowEmpty: true })
+    return src(paths.indexCss, {read: false, allowEmpty: true})
         .pipe(clean());
 }
 
 // Clean './src/**/assets/style/**/*.css' File
 function cleanProjectCss() {
-    return src(paths.projectCss, { read: false, allowEmpty: true })
+    return src(paths.projectCss, {read: false, allowEmpty: true})
         .pipe(clean());
 }
 
@@ -110,8 +119,8 @@ function reload(done) {
 
 // watch task
 function watchTask() {
-    watch([paths.scssPath, paths.indexScss, paths.templatePath],
-        series(scssTask, htmlTask, reload, srcIndexScss)
+    watch([paths.scssPath,paths.imageSrcPath, paths.indexScss, paths.templatePath],
+        series(scssTask,imageTask, htmlTask, reload, srcIndexScss)
     );
 }
 
@@ -121,6 +130,7 @@ function watchTask() {
 exports.default = series(
     scssTask,
     srcIndexScss,
+    imageTask,
     htmlTask,
     reload,
     serve,

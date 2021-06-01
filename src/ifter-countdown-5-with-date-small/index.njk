@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Ramadan Clock</title>
+
+    <link rel="stylesheet" href="ifter-countdown-5-with-date-small/assets/vendor/flip.min.css" inline>
+    <link rel="stylesheet" href="ifter-countdown-5-with-date-small/assets/style/style.css" inline>
+
+</head>
+
+<body>
+<div class="main">
+    <div class="left">
+        <img src="ifter-countdown-5-with-date-small/assets/images/day-box.png" class="dayBox" alt="Day Image" inline>
+        <span class="ramadan-day">07</span>
+    </div>
+
+    <div class="right">
+        <div class="title">আজকের ইফতারের সময় বাকি<br>আর মাত্র</div>
+        <div class="tick" data-did-init="handleTickInit">
+            <div class="reflection" data-repeat="true" data-layout="horizontal fit"
+                 data-transform="preset(h, m, s) -> delay">
+                <div class="tick-group">
+                    <div data-key="value" data-repeat="true" data-transform="pad(00) -> split -> delay">
+
+                        <span data-view="flip"></span>
+
+                    </div>
+                    <span data-key="label" data-view="text" class="tick-label"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="tick-onended-message" style="display:none">
+            <p>Time's up</p>
+        </div>
+    </div>
+    <a href="https://sharetrip.net" class="link" target="_blank"></a>
+</div>
+
+<script>
+    function handleTickInit(tick) {
+
+        // get timer offset (if not found, set to today)
+        var offset = new Date();
+
+        // add 24 hours to get final deadline
+        var deadline = "Apr 23 2022 11:00:00 GMT+0600";
+
+        // create counter
+        var counter = Tick.count.down(deadline, { format: ['h', 'm', 's'] });
+
+        // update tick with the counter value
+        counter.onupdate = function (value) {
+            tick.value = value;
+        };
+
+        var locale = {
+            HOUR_PLURAL: 'HRS',
+            HOUR_SINGULAR: 'HR',
+            MINUTE_PLURAL: 'MINS',
+            MINUTE_SINGULAR: 'MIN',
+            SECOND_PLURAL: 'SECS',
+            SECOND_SINGULAR: 'SEC',
+        };
+
+        for (var key in locale) {
+            if (!locale.hasOwnProperty(key)) { continue; }
+            tick.setConstant(key, locale[key]);
+        }
+    }
+
+</script>
+
+<!-- Js Links -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+<script src="ifter-countdown-5-with-date-small/assets/vendor/flip.min.js" inline></script>
+<script src="ifter-countdown-5-with-date-small/assets/scripts/main.js" inline></script>
+</body>
+
+</html>

@@ -1,0 +1,4 @@
+-- Here have a demo project for the structure.
+-- We should maintain that structure all the time
+-- Project Name: demoProject
+-- Image Link should look like this example: background-image: url("./assets/images/4.png"); or <img src='./assets/images/5.png' alt="image">

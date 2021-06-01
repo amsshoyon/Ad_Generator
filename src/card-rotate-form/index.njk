@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+      <title>Form Banner</title>
+
+      <link rel="stylesheet" href="card-rotate-form/assets/style/style.css" inline>
+
+</head>
+
+<body>
+      <div class="main">
+            <div class="card">
+                  <div class="card__side card__side--front">
+                        <div class="card__picture card__picture--1">
+                              &nbsp;
+                        </div>
+                        <h4 class="card__heading">
+                              <span class="card__heading-span card__heading-span--1">Get The Discount</span>
+                        </h4>
+                        <div class="card__detials">
+                              <ul>
+                                    <li>3 day tours</li>
+                                    <li>up to 30 people</li>
+                                    <li>2 tour guides</li>
+                                    <li>Sleep in cozy hotels</li>
+                                    <li>Difficulty: easy</li>
+                              </ul>
+                        </div>
+                  </div>
+
+                  <div class="card__side card__side--back card__side--back-1">
+                        <div class="card__cta">
+                              <div class="card__price-box">
+                                    <p class="card__price-only">Only</p>
+                                    <p class="card__price-value">৳ 20000</p>
+                              </div>
+
+                              <a href="#form_show" id="buyTicket" class="btn btn--white">Book Ticket!</a>
+                        </div>
+                  </div>
+            </div>
+
+            <div class="form">
+                  <form id="form_show" action="">
+                        <label for="name" class="label">Full Name</label>
+                        <input class="input-field" type="text" id="name" placeholder="Full Name" required>
+
+                        <label class="label" for="email">Email</label>
+                        <input class="input-field" type="email" id="email" placeholder="Email" required>
+
+                        <button type="submit" class="button btn">Submit</button>
+                  </form>
+            </div>
+      </div>
+
+
+
+      <!-- Js Links -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+      <script src="card-rotate-form/assets/scripts/main.js" inline></script>
+</body>
+
+</html>

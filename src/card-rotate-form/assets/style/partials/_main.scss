@@ -1,0 +1,138 @@
+/**************************************
+// Custom Css
+**************************************/
+.main {
+  height: 60rem;
+  width: 30rem;
+  perspective: 30rem;
+  position: relative;
+  margin: auto;
+  border: 1px solid #333;
+  overflow: hidden;
+}
+
+.card {
+  perspective: 150rem;
+  position: relative;
+  height: 52rem;
+}
+
+.card__side {
+  transition: all .8s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60rem;
+  backface-visibility: hidden;
+  box-shadow: #000;
+  overflow: hidden;
+  border-radius: 3px;
+}
+
+.card__side--front {
+  background-image: linear-gradient(to right, #0a99ff, rgba(116, 185, 255, 0.6)), url("https://image.freepik.com/free-photo/creative-background-red-suitcase-sneakers-plane-blue-background_99433-28.jpg");
+}
+
+.card__side--back {
+  transform: rotateY(180deg);
+}
+
+.card__side--back-1 {
+  background-image: linear-gradient(to right, #0a99ff, rgba(116, 185, 255, 0.6)), url("https://image.freepik.com/free-vector/tourists-wearing-face-masks_23-2148623090.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.card:hover .card__side--front {
+  transform: rotateY(-180deg);
+}
+
+.card:hover .card__side--back {
+  transform: rotateY(0deg);
+}
+
+.card__picture {
+  background-size: cover;
+  background-position: center;
+  height: 23rem;
+  background-blend-mode: screen;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.card__picture--1 {
+  background-image: linear-gradient(to right, #0a99ff, #ff7675), url("https://image.freepik.com/free-photo/top-view-travel-concept-with-toy-plane_23-2148666310.jpg");
+  background-position: right;
+  background-size: cover;
+}
+
+.card__heading {
+  font-size: 3.8rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #fff;
+  position: absolute;
+  top: 10rem;
+  right: 2rem;
+  width: 75%;
+  font-family: 'Spinnaker', sans-serif;
+}
+
+.card__heading-span {
+  padding: .3rem 2.5rem;
+  box-decoration-break: clone;
+}
+
+.card__heading-span--1 {
+  background-image: linear-gradient(to right, rgba(0, 184, 148, 0.85), rgba(116, 185, 255, 0.85));
+}
+
+.card__detials {
+  padding: 3rem;
+}
+
+.card__detials ul {
+  list-style: none;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.card__detials ul li {
+  text-align: center;
+  font-size: 2.3rem;
+  font-family: 'Lora', sans-serif;
+  padding: 1rem;
+  color: #fff;
+}
+
+.card__detials ul li:not(:last-child) {
+  border-bottom: 1px solid rgba(116, 185, 255, 0.6);
+}
+
+.card__cta {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 90%;
+}
+
+.card__price-box {
+  text-align: center;
+  margin-bottom: 8rem;
+  color: #fff;
+}
+
+.card__price-only {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  margin-bottom: 1.1rem;
+  font-family: "Lora", sans-serif;
+}
+
+.card__price-value {
+  font-size: 3rem;
+  font-weight: 100;
+  font-family: "Lora", sans-serif;
+}

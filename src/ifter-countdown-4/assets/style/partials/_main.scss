@@ -1,0 +1,98 @@
+.main {
+   width: 30rem;
+   height: 25rem;
+   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.9)), url("https://cdn.pixabay.com/photo/2019/07/15/09/17/mosque-4338926_960_720.png");
+   background-size: cover;
+   overflow: hidden;
+   position: relative;
+   margin: 0rem auto;
+   border: 0.1rem solid #333;
+   z-index: 1;
+}
+
+.img{
+   width: 300px;
+   height: 250px;
+}
+
+.link {
+   background: transparent;
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   z-index: 999;
+   overflow: hidden;
+}
+
+
+/**************************************
+// Custom Css
+**************************************/
+.title {
+   font-size: 16px;
+   color: #ed1a3b;
+   font-family: 'Orbitron', sans-serif;
+   text-align: center;
+   text-transform: uppercase;
+   font-weight: 300;
+   padding-top: 70px;
+   letter-spacing: 1px;
+}
+
+.title span {
+   font-size: 40px;
+   font-weight: 600;
+   letter-spacing: 2px;
+}
+
+#remaining-hour {
+   display: flex;
+   justify-content: center;
+   position: relative;
+   top: 5%;
+   overflow: hidden;
+}
+
+.box {
+   width: 60px;
+   height: 60px;
+   color: #ed1a3b;
+   margin: 0 5px;
+   background-color: #fff;
+   -webkit-border-radius: 4px;
+   border-radius: 4px;
+   text-align: center;
+   font-family: 'Orbitron', 'Sans-serif';
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+
+.counter {
+   font-size: 31px;
+   letter-spacing: 2px;
+   font-weight: 500;
+   display: block;
+}
+
+.text {
+   font-size: 8px;
+   letter-spacing: 2px;
+   color: #333;
+}
+
+.footer {
+   color: #ed1a3b;
+   font-size: 13px;
+   letter-spacing: 2px;
+   font-weight: 700;
+   position: absolute;
+   bottom: 2%;
+   left: 50%;
+   z-index: 1;
+   transform: translateX(-50%);
+   font-family: 'Orbitron', sans-serif;
+}

@@ -1,0 +1,71 @@
+/**************************************
+// Form
+**************************************/
+form {
+  width: 100%;
+}
+
+.form {
+  position: absolute;
+  width: 100%;
+  height: 101%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(to right, rgba(0, 184, 148, 0.6), rgba(116, 185, 255, 0.6)), url("https://image.freepik.com/free-vector/world-tourism-day-lettering_23-2148644204.jpg");
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  display: none;
+  z-index: 10;
+}
+
+.input-field {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  border-radius: 100px;
+  border: 1px solid #ddd;
+  padding: 5px 20px;
+  font-size: 17px;
+  margin: auto;
+}
+
+.input-field:focus,
+.input-field:visited {
+  outline: none;
+  border: 1px solid rgba(0, 184, 148, 0.6);
+  font-family: 'Lora', sans-serif;
+}
+
+.input-field[placeholder] {
+  font-family: 'Lora', sans-serif;
+}
+
+.label {
+  font-size: 18px;
+  margin: 30px 0 10px 20px;
+  display: block;
+  font-family: 'Lora', sans-serif;
+}
+
+.button {
+  font-size: 15px;
+  font-family: 'Lora', sans-serif;
+  text-transform: uppercase;
+  padding: 13px 35px;
+  border: 1px solid #fff;
+  display: flex;
+  justify-content: center;
+  border-radius: 100px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin-top: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: linear-gradient(to right, rgba(116, 185, 255, 0.6), rgba(0, 184, 148, 0.6));
+  color: #fff;
+}

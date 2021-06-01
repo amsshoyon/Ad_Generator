@@ -1,0 +1,53 @@
+/********************************************************
+    / Animation /
+********************************************************/
+
+@keyframes scale-up-down {
+   0% {
+      transform: scale3d(1, 1, 1);
+      animation-timing-function: linear;
+      transform-origin: 230px 225.84px 0px;
+   }
+
+   27% {
+      transform: scale3d(1, 1, 1);
+      animation-timing-function: linear;
+      transform-origin: 230px 225.84px 0px;
+   }
+
+   27.5% {
+      transform: scale3d(.78, .78, .78);
+      animation-timing-function: linear;
+      transform-origin: 230px 225.84px 0px;
+   }
+
+   31.5% {
+      transform: scale3d(1, 1, 1);
+      animation-timing-function: linear;
+      transform-origin: 230px 225.84px 0px;
+   }
+
+   56% {
+      transform: scale3d(1, 1, 1);
+      animation-timing-function: linear;
+      transform-origin: 230px 225.84px 0px;
+   }
+
+   61% {
+      transform: scale3d(.78, .78, .78);
+      animation-timing-function: linear;
+      transform-origin: 230px 225.84px 0px;
+   }
+
+   90% {
+      transform: scale3d(1.18, 1.18, 1.18);
+      animation-timing-function: linear;
+      transform-origin: 230px 225.84px 0px;
+   }
+
+   100% {
+      transform: scale3d(.001, .001, .001);
+      animation-timing-function: ease-in;
+      transform-origin: 230px 225.84px 0px;
+   }
+}

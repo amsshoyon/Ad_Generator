@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="scratch/assets/style/style.css" inline>
+</head>
+
+<body data-new-gr-c-s-check-loaded="14.1000.0" data-gr-ext-installed="">
+<div id="adArea" class="rct">
+    <div id="mainScreen" class="absfull">
+        <!-- STEP 1 -->
+        <img src="scratch/assets/images/logo.png" inline alt="Logo" class="logo">
+        <div class="section step1 active">
+            <div class="rainblock rainblock2">
+
+            </div>
+            <img src="scratch/assets/images/book.png" inline alt="Image" class="book">
+            <img src="scratch/assets/images/bowl.png" inline alt="Image" class="bowl">
+            <img src="scratch/assets/images/scratchFront.png" inline alt="Image" class="scratchFont hiddenImg">
+            <img src="scratch/assets/images/scratchBack.jpg" inline alt="Image" class="scratchBack hiddenImg">
+            <div class="smokeBlock">
+            </div>
+            <div id="scratch-container">
+
+                <img src="scratch/assets/images/scratchBack.jpg" inline><canvas class="sc__canvas" width="300" height="250"></canvas></div>
+            <div class="rainblock rainblock1">
+
+            </div>
+            <img src="scratch/assets/images/slogan.png" inline alt="Image" class="slogan">
+        </div>
+        <!-- STEP 2 -->
+        <div class="section step2" onclick="ctaFunction();">
+            <div class="rainblock rainblock3">
+
+            </div>
+            <img src="scratch/assets/images/btn.png" inline alt="Image" class="btn">
+            <img src="scratch/assets/images/packLeft.png" inline alt="Image" class="packs left">
+            <img src="scratch/assets/images/packMiddle.png" inline alt="Image" class="packs middle">
+            <img src="scratch/assets/images/packRight.png" inline alt="Image" class="packs right">
+        </div>
+        <div class="cursorBlock hidden">
+            <img class="content-image" src="scratch/assets/images/wipe.png" inline>
+            <img class="content-image cursor" src="scratch/assets/images/cursor.png" inline>
+        </div>
+    </div>
+</div>
+
+<script src="scratch/assets/vendor/scratchcard.min.js" inline></script>
+<script type="text/javascript">
+    function ctaFunction() {
+        window.open("https://sharetrip.net");
+    }
+
+    function _dsptr(e) {
+        var track = new Image();
+        track.src = "{EVENT_URL}" + e;
+    };
+
+    var ft = true;
+
+    function dragft() {
+        if (ft) {
+            ft = false;
+            _dsptr("started");
+        }
+    }
+
+    const hideCursorBlock = function () {
+        setTimeout(function () {
+            document.querySelector('.cursorBlock').classList.add('hidden');
+        }, 50);
+    };
+
+    mainArea = document.querySelector("#mainScreen");
+    mainArea.addEventListener('mouseover', hideCursorBlock);
+    mainArea.addEventListener('touchstart', hideCursorBlock);
+    /* SCRIPT */
+    const sections = document.querySelectorAll('.section');
+    const screen1 = document.querySelector('.section.step1');
+    const scratchContainer = document.querySelector('#scratch-container');
+    const frontScratch = document.querySelector('.scratchFont').getAttribute('src');
+    const backScratch = document.querySelector('.scratchBack').getAttribute('src');
+    let activeSection;
+
+    const removeActive = function (e) {
+        activeSection = document.querySelector('.section.active');
+        activeSection.classList.remove('active');
+    }
+
+    const changeStep = function (e) {
+        scratchContainer.classList.add('done');
+        document.querySelector('.active').classList.add('preview');
+        document.querySelector('.rainblock1').classList.add('disabled');
+        setTimeout(() => {
+            removeActive();
+            document.querySelector('.step2').classList.add('active');
+        }, 4000);
+    }
+
+    screen1.addEventListener('mouseover', function (e) {
+        screen1.classList.remove('amimScreen');
+    });
+    screen1.addEventListener('touchstart', function (e) {
+        screen1.classList.remove('amimScreen');
+    });
+
+
+    /* SCRATCH */
+    window.addEventListener('load', function () {
+        var scContainer = document.getElementById('scratch-container');
+        var sc = new ScratchCard('#scratch-container', {
+            enabledPercentUpdate: true,
+            scratchType: SCRATCH_TYPE.SPRAY,
+            // brushSrc: './images/brush.png',
+            containerWidth: scContainer.offsetWidth,
+            containerHeight: 250,
+            imageForwardSrc: frontScratch,
+            imageBackgroundSrc: backScratch,
+            // htmlBackground: '<p class="test"><strong>Hello i am HTML content !</strong></p>',
+            clearZoneRadius: 30,
+            percentToFinish: 60, // When the percent exceeds 50 on touchend event the callback will be exec.
+            nPoints: 30,
+            pointSize: 50,
+            callback: function () {
+                changeStep();
+            }
+        })
+        sc.canvas.addEventListener('scratch.move', () => {
+            let percent = parseInt(sc.getPercent());
+            if (percent >= 60) {
+                changeStep();
+            }
+        });
+        sc.init();
+    });
+
+</script>
+</body>
+
+</html>
