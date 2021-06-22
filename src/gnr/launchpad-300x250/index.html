@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>LaunchPad Slider</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="gnr/launchpad-300x250/style.css" inline>
+</head>
+
+<body class="GNR_CLICKTAG">
+    <div class="slider_wrapper">
+        <div class="slider_content">
+            <div class="s_item">
+                <a href="https://databird.co/launchpad-2021" target="_blank">
+                    <img src="kv.png" alt="Image">
+                </a>
+            </div>
+            <div class="s_item">
+                <a href="https://databird.co/launchpad-2021" target="_blank">
+                    <img src="text.png" alt="Image">
+                </a>
+            </div>
+            <div class="s_item">
+                <a href="https://databird.co/launchpad-2021" target="_blank">
+                    <img src="Prizes-gdn.png" alt="Image">
+                </a>
+            </div>
+            <div class="s_item">
+                <a href="https://databird.co/launchpad-2021" target="_blank">
+                    <div class="ra-btn">
+                        <img src="Participate.png" alt="Image">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        $('.slider_content').slick({
+            dots: false,
+            infinite: true,
+            autoplay: true,
+            speed: 400,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            cssEase: 'cubic-bezier(.65,.25,.53,.82)',
+            pauseOnHover: false,
+            pauseOnFocus: false
+        });
+    </script>
+</body>
+
+</html>

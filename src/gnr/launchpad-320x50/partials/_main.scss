@@ -1,0 +1,24 @@
+.slider_wrapper {
+    width: 320px;
+    height: 50px;
+}
+
+.sliderContent {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-image: url("element.png");
+    background-color: #fff;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.ra-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 320px;
+    height: 50px;
+    background-color: transparent;
+}

@@ -24,7 +24,7 @@ const paths = {
     indexScss: './src/index.scss',
     projectCss: './src/**/assets/style/*.+(css|map)',
     VendoProjectCss: './src/**/assets/vendor/*.css',
-    imageSrcPath: './src/**/assets/images/*.{jpg,jpeg,png,svg}',
+    imageSrcPath: './src/**/*.{jpg,jpeg,png,svg}',
     imageDistPath: './dist'
 }
 
